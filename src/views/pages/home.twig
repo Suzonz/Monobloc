@@ -1,0 +1,36 @@
+{% extends "../layouts/base.twig" %}
+
+{% block style %}
+	<link rel="stylesheet" href="./assets/css/register.css"/>
+{% endblock %}
+
+{% block title %}
+	<title>Accueil - Bookstore</title>
+{% endblock %}
+
+{% block main %}
+	<main>
+		<section id="section-form" class="book-container">
+			<h2>Bienvenue {{ user.firstName }}</h2>
+			<table>
+				<tr>
+					<th>Titre</th>
+					<th>Auteur</th>
+					<th>Actions</th>
+				</tr>
+				{% for book in books %}
+					<tr>
+						<td>{{ book.title }}</td>
+						<td>{{ book.author }}</td>
+						<td>
+							<form action="/deleteBook/{{book.id}}" method="post" class="inline-form">
+								<button type="submit" class="link-button">Supprimer</button>
+							</form>
+							<a href="/updateBook/{{book.id}}">Modifier</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</section>
+	</main>
+{% endblock %}

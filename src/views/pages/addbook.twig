@@ -1,0 +1,31 @@
+{% extends "../layouts/base.twig" %}
+
+{% block style %}
+	<link rel="stylesheet" href="/assets/css/register.css"/>
+{% endblock %}
+
+{% block title %}
+	<title>{% if book %}Modifier un livre{% else %}Ajouter un livre{% endif %} - Monobloc</title>
+{% endblock %}
+
+{% block main %}
+	<main>
+		<section id="section-form">
+			<h1>{% if book %}Modification{% else %}Nouveau livre{% endif %}</h1>
+			<form action="{% if book %}/updateBook/{{ book.id }}{% else %}/addBook{% endif %}" method="post">
+				<div>
+					<label for="title">Titre</label>
+					<input type="text" id="title" name="title" value="{{ values ? values.title : book.title }}" required>
+				</div>
+				<div>
+					<label for="author">Auteur</label>
+					<input type="text" id="author" name="author" value="{{ values ? values.author : book.author }}" required>
+				</div>
+				{% if error %}
+					<p class="form-error">{{ error }}</p>
+				{% endif %}
+				<button>{% if book %}Modifier{% else %}Ajouter{% endif %}</button>
+			</form>
+		</section>
+	</main>
+{% endblock %}

@@ -1,3 +1,5 @@
+    /* background-color: #f5ba18; */
+
 body {
     background-image: url("../img/bg.jpg");
     background-position: center;
@@ -11,11 +13,11 @@ main {
     padding-top: 120px;
 }
 
-.message, #section-form {
+#section-form {
     max-width: 500px;
     margin: 0 auto;
     padding: 2rem;
-    background-color: #f5f5f5;
+    background-color: #ec8f23;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -38,6 +40,12 @@ label {
     color: #333;
     font-weight: bold;
 }
+
+input,
+button {
+    box-sizing: border-box;
+}
+
 
 input {
     width: 100%;
@@ -67,7 +75,7 @@ button:hover {
 
 header {
     background-color: #67236d;
-    padding: 1rem 0;
+    padding: 10px 0;
     color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     left: 0;
@@ -76,13 +84,29 @@ header {
     position: fixed;
 }
 
-nav ul {
+nav {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+}
+
+.nav-left ul,
+.nav-right ul {
+    display: flex;
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
     gap: 2rem;
+    padding: 15px 0;
+}
+
+.nav-right {
+    margin-left: auto; /* ✅ ça fonctionne maintenant */
 }
 
 nav a {
@@ -100,7 +124,6 @@ nav a:hover {
 
 footer {
     background-color: #f1f1f1;
-    padding: 1rem 0;
     text-align: center;
     font-size: 0.9rem;
     color: #555;
@@ -108,4 +131,82 @@ footer {
     width: 100%;
     bottom: 0;
     left: 0;
+}
+
+/* TABLE STYLES */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    border: solid 1px #555;
+    overflow: hidden;
+}
+
+
+
+th, td {
+    text-align: left;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #67236d;
+    color: white;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Action links */
+
+td a {
+    margin-right: 1rem;
+    color: #67236d;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+td a:hover {
+    text-decoration: underline;
+    color: #964c9c;
+}
+
+/* « Supprimer » est un bouton de formulaire, présenté comme les liens d'action */
+.inline-form {
+    display: inline;
+    margin: 0;
+}
+
+.link-button {
+    width: auto;
+    margin: 0 1rem 0 0;
+    padding: 0;
+    background: none;
+    color: #67236d;
+    font: inherit;
+    font-weight: bold;
+}
+
+.link-button:hover {
+    background: none;
+    text-decoration: underline;
+    color: #964c9c;
+}
+
+/* Messages d'erreur des formulaires */
+.form-error {
+    color: #7a0b0b;
+    font-weight: bold;
+    margin: 0.3rem 0 0;
+}
+
+.book-container {
+    max-width: 70% !important;
 }

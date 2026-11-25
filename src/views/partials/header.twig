@@ -1,12 +1,23 @@
 <header>
-    <nav>
-        <ul>
-            <li>
-                <a href="/register">Inscription</a>
-            </li>
-            <li>
-                <a href="/login">Connexion</a>
-            </li>
-        </ul>
-    </nav>
+	<nav>
+		<div class="nav-left">
+			{% if user %}
+				<ul>
+					<li><a href="/">Ma collection</a></li>
+				</ul>
+			{% endif %}
+		</div>
+
+		<div class="nav-right">
+			<ul>
+				{% if user %}
+					<li><a href="/addBook">Ajouter un livre</a></li>
+					<li><a href="/logout">Déconnexion</a></li>
+				{% else %}
+					<li><a href="/register">Inscription</a></li>
+					<li><a href="/login">Connexion</a></li>
+				{% endif %}
+			</ul>
+		</div>
+	</nav>
 </header>

@@ -5,35 +5,40 @@
 {% endblock %}
 
 {% block title %}
-    <title>Yolo</title>
+    <title>Inscription - Monobloc</title>
 {% endblock %}
 
 {% block main %}
     <main>
         <section id="section-form">
-            <h2>Formulaire d'inscription {{ user.firstName }} </h2>
-            <form action="" method="POST">
+            <h2>Formulaire d'inscription</h2>
+            <form action="/register" method="POST">
                 <div>
                     <label for="lastName">Nom</label>
-                    <input type="text" id="lastName" name="lastName">
+                    <input type="text" id="lastName" name="lastName" value="{{ values.lastName }}" required>
+                    {% if error.lastName %}<p class="form-error">{{ error.lastName }}</p>{% endif %}
                 </div>
                 <div>
                     <label for="firstName">Prénom</label>
-                    <input type="text" id="firstName" name="firstName">
+                    <input type="text" id="firstName" name="firstName" value="{{ values.firstName }}" required>
+                    {% if error.firstName %}<p class="form-error">{{ error.firstName }}</p>{% endif %}
                 </div>
                 <div>
                     <label for="mail">Email</label>
-                    <input type="mail" id="mail" name="mail">
+                    <input type="email" id="mail" name="mail" value="{{ values.mail }}" required>
+                    {% if error.mail %}<p class="form-error">{{ error.mail }}</p>{% endif %}
                 </div>
                 <div>
-                    <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password">
+                    <label for="password">Mot de passe (8 caractères minimum)</label>
+                    <input type="password" id="password" name="password" minlength="8" required>
+                    {% if error.password %}<p class="form-error">{{ error.password }}</p>{% endif %}
                 </div>
                 <div>
                     <label for="confirmPassword">Confirmez votre mot de passe</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword">
-                    <p>{{error.confirmPassword}}</p>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    {% if error.confirmPassword %}<p class="form-error">{{ error.confirmPassword }}</p>{% endif %}
                 </div>
+                {% if error.global %}<p class="form-error">{{ error.global }}</p>{% endif %}
                 <button>S'inscrire</button>
             </form>
         </section>

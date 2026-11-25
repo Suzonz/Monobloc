@@ -1,15 +1,40 @@
 {% extends "../layouts/base.twig" %}
 
 {% block style %}
-    <link rel="stylesheet" href="./assets/css/register.css" />
+	<link rel="stylesheet" href="./assets/css/register.css"/>
 {% endblock %}
 
 {% block title %}
-    <title>Yolo</title>
+	<title>Connexion - Monobloc</title>
 {% endblock %}
 
 {% block main %}
-    <main>
-        <p class="message">Bienvenue sur Login !</p>
-    </main>
+	<main>
+		<section id="section-form">
+			<div>
+				<h2>Connexion</h2>
+			</div>
+			<div>
+				<form action="/login" method="POST">
+					<div>
+						<label for="mail">Email</label>
+						<input id="mail" name="mail" type="email" value="{{ values.mail }}" required>
+						{% if error.mail %}
+							<p class="form-error">{{ error.mail }}</p>
+						{% endif %}
+					</div>
+					<div>
+						<label for="password">Mot de passe</label>
+						<input id="password" name="password" type="password" required>
+						{% if error.password %}
+							<p class="form-error">{{ error.password }}</p>
+						{% endif %}
+					</div>
+					<div>
+						<button type="submit">Se connecter</button>
+					</div>
+				</form>
+			</div>
+		</section>
+	</main>
 {% endblock %}
