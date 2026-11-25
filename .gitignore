@@ -1,3 +1,12 @@
-./node_modules
-./package-lock.json
+# Dépendances (recréées par npm install)
+node_modules/
+
+# Client Prisma généré
 /generated/prisma
+
+# Réglages locaux (copier .env.example en .env)
+.env
+
+# Éditeurs
+.vscode/
+.idea/
