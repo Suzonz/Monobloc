@@ -14,11 +14,9 @@
   "description": "",
   "dependencies": {
     "@prisma/client": "^6.8.2",
-    "@tailwindcss/cli": "^4.1.8",
     "bcrypt": "^6.0.0",
     "express": "^5.1.0",
     "express-session": "^1.18.1",
-    "tailwindcss": "^4.1.8",
     "twig": "^1.17.1"
   },
   "devDependencies": {
