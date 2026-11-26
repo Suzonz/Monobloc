@@ -37,6 +37,11 @@ app.use(userRoutes)
 app.use(mainRoutes)
 app.use(bookRoutes)
 
+// Aucune route n'a répondu : page 404 (le menu s'adapte si l'utilisateur est connecté)
+app.use((req, res) => {
+    res.status(404).render("pages/404.twig", { user: req.session.user })
+})
+
 // app.listen est une méthode clé d’Express qui sert à démarrer un serveur HTTP, donc importée avec express
 app.listen(PORT, ()=>{
     console.log(`Écoute sur le port ${PORT}`);

@@ -1,36 +1,44 @@
 {% extends "../layouts/base.twig" %}
 
 {% block style %}
-	<link rel="stylesheet" href="./assets/css/register.css"/>
+	<link rel="stylesheet" href="/assets/css/register.css"/>
 {% endblock %}
 
 {% block title %}
-	<title>Accueil - Bookstore</title>
+	<title>Ma collection - Monobloc</title>
 {% endblock %}
 
 {% block main %}
 	<main>
 		<section id="section-form" class="book-container">
 			<h2>Bienvenue {{ user.firstName }}</h2>
-			<table>
-				<tr>
-					<th>Titre</th>
-					<th>Auteur</th>
-					<th>Actions</th>
-				</tr>
-				{% for book in books %}
+			{% if error %}
+				<p class="form-error">{{ error }}</p>
+			{% elseif books is empty %}
+				<p class="empty-collection">Ta collection est vide pour l'instant.</p>
+				<a href="/addBook" class="button-link">Ajouter mon premier livre</a>
+			{% else %}
+				<p class="book-count">{{ books|length }} livre{% if books|length > 1 %}s{% endif %}</p>
+				<table>
 					<tr>
-						<td>{{ book.title }}</td>
-						<td>{{ book.author }}</td>
-						<td>
-							<form action="/deleteBook/{{book.id}}" method="post" class="inline-form">
-								<button type="submit" class="link-button">Supprimer</button>
-							</form>
-							<a href="/updateBook/{{book.id}}">Modifier</a>
-						</td>
+						<th>Titre</th>
+						<th>Auteur</th>
+						<th>Actions</th>
 					</tr>
-				{% endfor %}
-			</table>
+					{% for book in books %}
+						<tr>
+							<td>{{ book.title }}</td>
+							<td>{{ book.author }}</td>
+							<td>
+								<a href="/updateBook/{{ book.id }}">Modifier</a>
+								<form action="/deleteBook/{{ book.id }}" method="post" class="inline-form" onsubmit="return confirm('Supprimer ce livre ?')">
+									<button type="submit" class="link-button">Supprimer</button>
+								</form>
+							</td>
+						</tr>
+					{% endfor %}
+				</table>
+			{% endif %}
 		</section>
 	</main>
 {% endblock %}

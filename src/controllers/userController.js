@@ -93,7 +93,7 @@ exports.postLogin = async (req, res) => {
     }
 }
 
-exports.getLogout = (req, res) => {
+exports.postLogout = (req, res) => {
     req.session.destroy(() => {
         res.redirect("/login")
     })

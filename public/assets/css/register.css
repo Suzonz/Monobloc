@@ -210,3 +210,42 @@ td a:hover {
 .book-container {
     max-width: 70% !important;
 }
+/* Collection vide, compteur, lien présenté comme un bouton */
+.empty-collection,
+.book-count {
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+}
+
+.button-link {
+    display: block;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    background-color: #67236d;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.button-link:hover {
+    background-color: #964c9c;
+}
+
+/* Lien « Déconnexion » : un bouton de formulaire présenté comme les liens du menu */
+.nav-button {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    background: none;
+    color: white;
+    font: inherit;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.nav-button:hover {
+    background: none;
+    text-decoration: underline;
+}

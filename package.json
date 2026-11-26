@@ -4,14 +4,15 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon app.js",
+    "postinstall": "prisma generate"
   },
   "prisma": {
     "schema": "./prisma"
   },
   "author": "Suzon Robin",
   "license": "ISC",
-  "description": "",
+  "description": "Gestion d'une collection de livres personnelle (Express, Twig, Prisma, MySQL)",
   "dependencies": {
     "@prisma/client": "^6.8.2",
     "bcrypt": "^6.0.0",
@@ -20,6 +21,7 @@
     "twig": "^1.17.1"
   },
   "devDependencies": {
+    "nodemon": "^3.1.14",
     "prisma": "^6.8.2"
   }
 }

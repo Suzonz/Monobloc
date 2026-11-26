@@ -12,7 +12,11 @@
 			<ul>
 				{% if user %}
 					<li><a href="/addBook">Ajouter un livre</a></li>
-					<li><a href="/logout">Déconnexion</a></li>
+					<li>
+						<form action="/logout" method="post" class="inline-form">
+							<button type="submit" class="nav-button">Déconnexion</button>
+						</form>
+					</li>
 				{% else %}
 					<li><a href="/register">Inscription</a></li>
 					<li><a href="/login">Connexion</a></li>
